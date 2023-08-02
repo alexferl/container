@@ -165,7 +165,7 @@ fn test_fix() {
 
 	for i := 100; i > 0; i-- {
 		elem := rand.intn(h.len())!
-		if i&1 == 0 {
+		if i & 1 == 0 {
 			h[elem] *= 2
 		} else {
 			h[elem] /= 2

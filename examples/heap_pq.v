@@ -13,7 +13,9 @@ mut:
 // A PriorityQueue implements heap.Interface and holds Items.
 type PriorityQueue = []Item
 
-pub fn (pq PriorityQueue) len() int { return pq.len }
+pub fn (pq PriorityQueue) len() int {
+	return pq.len
+}
 
 pub fn (pq PriorityQueue) less(i int, j int) bool {
 	// We want pop to give us the highest, not lowest, priority so we use greater than here.
@@ -36,10 +38,10 @@ pub fn (mut pq PriorityQueue) push(x Item) {
 pub fn (mut pq PriorityQueue) pop() Item {
 	mut old := pq
 	n := old.len
-	mut item := old[n-1]
-	old[n-1] = unsafe { nil }
+	mut item := old[n - 1]
+	old[n - 1] = unsafe { nil }
 	item.index = -1 // for safety
-	pq = old[0..n-1]
+	pq = old[0..n - 1]
 	return item
 }
 
@@ -51,11 +53,17 @@ fn (mut pq PriorityQueue) update(mut item Item, value string, priority int) {
 }
 
 fn main() {
-	items := map[string]int{"banana": 3, "apple": 2, "pear": 4}
+	items := {
+		'banana': 3
+		'apple':  2
+		'pear':   4
+	}
 
 	// Create a priority queue, put the items in it, and
 	// establish the priority queue (heap) invariants.
-	mut pq := PriorityQueue{len: items.len}
+	mut pq := PriorityQueue{
+		len: items.len
+	}
 	mut i := 0
 	for value, priority in items {
 		pq[i] = Item{
@@ -69,7 +77,7 @@ fn main() {
 
 	// Insert a new item and then modify its priority.
 	item := Item{
-		value: "orange"
+		value: 'orange'
 		priority: 1
 	}
 	heap.push(mut pq, item)

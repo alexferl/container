@@ -7,7 +7,7 @@ import alexferl.sort
 // for a type using the routines in this package.
 // Any type that implements it may be used as a
 // min-heap with the following invariants (established after
-// Init has been called or if the data is empty or sorted):
+// init has been called or if the data is empty or sorted):
 //
 //	!h.less(j, i) for 0 <= i < h.len() and 2*i+1 <= j <= 2*i+2 and j < h.len()
 //
@@ -17,6 +17,7 @@ import alexferl.sort
 pub interface Interface {
 	sort.Interface
 mut:
+	// TODO: the ints should be T, but it has issues in interfaces
 	push(x int) // add x as element len()
 	pop() int // remove and return element len() - 1.
 }
