@@ -22,7 +22,7 @@ mut:
 }
 
 // init establishes the heap invariants required by the other routines in this package.
-// Init is idempotent with respect to the heap invariants
+// init is idempotent with respect to the heap invariants
 // and may be called whenever the heap invariants may have been invalidated.
 // The complexity is O(n) where n = h.len().
 pub fn init(mut h Interface) {
